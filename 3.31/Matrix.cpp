@@ -9,7 +9,126 @@
 
 #include "Matrix.h"
 
+//  by wang wei
+// Matrix::Matrix(string n, int h, int w, int**p)
+// {
+// 	name=n;
+// 	width=w;
+// 	height=h;
+// 	param=new int*[height];
+// 	for(int i=0;i<height;i++)
+// 	{
+// 		param[i]=new int[width];
+// 		for(int j=0;j<width;j++)
+// 		{
+// 			param[i][j]=p[i][j];
+// 		}
+// 	}
+// }
 
+// Matrix::Matrix(const Matrix &a)
+// {
+// 	name=a.name;
+// 	width=a.width;
+// 	height=a.height;
+// 	param=new int*[height];
+// 	for(int i=0;i<height;i++)
+// 	{
+// 		param[i]=new int[width];
+// 		for(int j=0;j<width;j++)
+// 		{
+// 			param[i][j]=a.param[i][j];
+// 		}
+// 	}
+// }
+
+// Matrix::~Matrix()
+// {
+// 	for(int i=0;i<height;i++)
+// 		delete []param[i];
+// 	delete []param;
+// }
+
+// bool Matrix::operator ==(const Matrix&a)
+// {
+// 	for(int i=0;i<height;i++)
+// 	{
+// 		for(int j=0;j<width;j++)
+// 		{
+// 			if(param[i][j]!=a.param[i][j])
+// 			{
+// 				return false;
+// 			}
+// 		}
+// 	}
+// 	return true;
+// }
+
+// bool Matrix::operator !=(const Matrix&a)
+// {
+// 	if(this->operator ==(a) )
+// 		return false;
+// 	else
+// 		return true;
+// }
+
+// void Matrix::operator +=(const Matrix&a)
+// {
+// 	if(width!=a.width||height!=a.height)
+// 		cout<<"invalid addition."<<endl;
+// 	else
+// 	{
+// 	for(int i=0;i<height;i++)
+// 	{
+// 		for(int j=0;j<width;j++)
+// 		{
+// 			param[i][j]+=a.param[i][j];
+// 		}
+// 	}
+// 	}
+// }
+
+// void Matrix::operator -=(const Matrix&a)
+// {
+// 	if(width!=a.width||height!=a.height)
+// 		cout<<"invalid substraction."<<endl;
+// 	else
+// 	{
+// 	for(int i=0;i<height;i++)
+// 	{
+// 		for(int j=0;j<width;j++)
+// 		{
+// 			param[i][j]-=a.param[i][j];
+// 		}
+// 	}
+// 	}
+// }
+
+// Matrix Matrix::operator *(const Matrix&a)
+// {
+// 	Matrix b;
+// 	if(width!=a.height)
+// 	{
+// 		cout<<"invalid multiplication."<<endl;
+// 	}
+// 	else
+// 	{
+// 	b.name="newMat";
+// 	b.param=new int*[height];
+// 	for(int i=0;i<height;i++)
+// 		b.param[i]=new int[width];
+// 	for(int i=0;i<height;i++)
+// 	{
+// 		for(int j=0;j<a.width;j++)
+// 		{
+// 			b.param[i][j]=0;
+// 			for(int k=0;k<width;k++)
+// 				b.param[i][j]+=param[i][k]*a.param[k][j];
+// 		}
+// 	}
+// 	}
+// 	return b;
+// }
 
 Matrix::Matrix(string name, int height, int width, int** p)
 {

@@ -2,6 +2,25 @@
 #include"Bitset.h"
 using namespace std;
 int main() {
+    // bitset a;
+    // for (int i = 0; i < 10; i++)
+    //     a.set(i);
+    // cout << a << endl;
+    // a.reset(4);
+    // cout << a << endl;
+    // a.reset(5);
+    // cout << a << endl;
+    // a = ~a;
+    // cout << a << endl;
+    // a.reset(7);
+    // cout << a << endl;
+    // a = a << 1;
+    // cout << a << endl;
+    // a <<= 80;
+    // cout << a << endl;
+    // a = a >> 1;
+    // cout << a << endl;
+    
     bitset a, b;
     int n, m, q;
     cin >> n >> m >> q;
