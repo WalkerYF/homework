@@ -1,10 +1,10 @@
 // If the caculation is invalid, print like the following:
 
-"invalid addition.\n"
+// "invalid addition.\n"
 
-"invalid substraction.\n"
+// "invalid substraction.\n"
 
-invalid multiplication.\nand return an empty matrix
+// invalid multiplication.\nand return an empty matrix
 
 
 #include "Matrix.h"
@@ -32,7 +32,7 @@ Matrix::Matrix(const Matrix & t)
 	for (int i = 0; i < height; i++){
 		param[i] = new int [width];
 		for (int j = 0; j < width; j++)
-			param[i][j] = t.p[i][j];
+			param[i][j] = t.param[i][j];
 	}
 
 }
@@ -80,7 +80,7 @@ void Matrix::operator +=(const Matrix& t)
 		}
 	return ;
 }
-void Matrix::operator -=(const Matrix&)
+void Matrix::operator -=(const Matrix& t)
 {
 	if (height != t.height || width != t.height){
 		cout << "invalid substraction.\n";
@@ -98,7 +98,26 @@ Matrix Matrix::operator *(const Matrix& t)
 		cout << "invalid multiplication.\n";
 		return Matrix();
 	}
-	
+	int t_height = height;
+	int t_width = t.width;
+	int ** p = new int *[height];
+	for (int i = 0; i < t_height; i++){
+		p[i] = new int [t_width];
+	}
 
+	for (int i = 0; i < t_height; i++){
+		for (int j = 0; j < t_width; j++){
+			int sum = 0;
+			for (int ii = 0; ii < this->width; ii++)
+				sum += this->param[i][ii] * t.param[ii][j];
+			p[i][j] = sum;
+		}
+	}
+	Matrix ans = Matrix("newMat", t_height, t_width, p);
 
+	for (int i = 0; i < t_height; i++)
+		delete [] p[i];
+	delete [] p;
+
+	return ans;
 }
