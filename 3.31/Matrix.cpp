@@ -38,7 +38,9 @@ Matrix::Matrix(const Matrix & t)
 }
 Matrix::~Matrix()
 {
-	
+	for (int i = 0; i < height; i++)
+		delete [] this->param[i];
+	delete [] this->param;
 }
 bool Matrix::operator ==(const Matrix& t)
 {
@@ -96,7 +98,7 @@ Matrix Matrix::operator *(const Matrix& t)
 		cout << "invalid multiplication.\n";
 		return Matrix();
 	}
-
+	
 
 
 }
