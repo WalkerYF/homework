@@ -3,15 +3,14 @@
 #include <cstdlib>
 #include <iostream>
 
-char String::_error_sign;  
+char String::_error_sign = 0;  
 // initial as any char is okay
 // constructors
 String::String()
 {
 
-    _size = 5;
-    _buff = new char [_size];
-    std::strcpy(_buff, "\0");
+    _size = 0;
+    _buff = nullptr;
     _length = 0;
 
 }
@@ -32,10 +31,7 @@ String::String(const String &src)
 // destructor
 String::~String()
 {
-    delete [] _buff;
-    _buff = nullptr;
-    _length = 0;
-    _size = 0;
+    clear();
 }
 // member methods
 void String::assign(const char *src)
@@ -48,9 +44,13 @@ void String::assign(const char *src)
 }
 void String::append(const char &other)
 {
-    if (_length < _size){
+    if (_length < _size - 1){
     }
-    else{
+    else if (_size == 0){
+        _size = 2;
+        _buff = new char [_size];
+    }
+    else {
         _size = 2 * _size + 1;
         char * newBuff = new char [_size];
         strcpy(newBuff, _buff);
@@ -59,10 +59,14 @@ void String::append(const char &other)
     }
     _buff[_length] = other;
     _length++;
+    _buff[_length] = '\0';
 }
 void String::clear()
 {
-    std::memset(_buff, 0, sizeof(_size));
+    delete [] _buff;
+    _buff = nullptr;
+    _length = 0;
+    _size = 0;
 }
 int String::compare(const String &other) const
 {
@@ -87,7 +91,7 @@ int String::find(const String &other, int pos) const
 {
     char * p = std::strstr(_buff + pos, other._buff);
     if (p == nullptr)
-        return -1;
+        return _length;
     else
         return (p-_buff);
 }
@@ -99,7 +103,8 @@ int String::length() const
 String String::substr(const int &pos, const int &count) const
 {
     String ans;
-    for (int i = 0; i < count ; i++)
+    int cnt = (pos + count >= _length)?(_length-pos):count; 
+    for (int i = 0; i < cnt ; i++)
     {
         ans.append(_buff[pos+i]);
     }
@@ -112,7 +117,7 @@ char& String::operator[](const int &index)
 }
 void String::operator=(const String &other)
 {
-    delete _buff;
+    delete [] _buff;
     _length = other._length;
     _size = other._size;
     _buff = new char [_size];
@@ -120,7 +125,7 @@ void String::operator=(const String &other)
 }
 void String::operator=(const char *src)
 {
-    delete _buff;
+    delete []_buff;
     _length = std::strlen(src);
     _size = 2 * _length;
     _buff = new char [_size];
@@ -128,11 +133,14 @@ void String::operator=(const char *src)
 }
 String String::operator+(const String &other) const
 {
-    char * ans;
-    ans = new char [_size + other._size];
-    std::strcat(ans, _buff);
-    std::strcat(ans, other._buff);
-    return String(ans);
+    char * t_ans;
+    t_ans = new char [_size + other._size + 1];
+    t_ans[0] = '\0';
+    std::strcat(t_ans, _buff);
+    std::strcat(t_ans, other._buff);
+    String ans(t_ans);
+    delete [] t_ans;
+    return ans;
 }
 bool String::operator<(const String &other) const
 {
@@ -172,6 +180,8 @@ bool String::operator!=(const String &other) const
 // friend methods
 std::ostream& operator<<(std::ostream& out, const String &str)
 {
+    if (str._buff == nullptr)
+        return out;
     out << str._buff;
     return out;
 }

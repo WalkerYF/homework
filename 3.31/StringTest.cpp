@@ -4,8 +4,8 @@
 #include <string>
 using namespace std;
  
-String a, b("MFGZ!");
-String c = b;
+String a("HYOUKAQWERTYMORE"), b("MFGZ!");
+String c = a;
  
 void display() {
   cout << a.empty() << " " << a.length() << " " << a << endl;
@@ -14,35 +14,12 @@ void display() {
 }
  
 int main() {
-
-  string aa, bb, cc;
-  display();
-  c[0] = 'K';
-  display();
-  cin >> aa >> cc;
-  a.assign(aa.c_str());
-  c.assign(cc.c_str());
-  display();
-  b.clear();
-  display();
-  for (int i = 0 ; i < 10; ++i) {
-      char t;
-      cin >> t;
-      a.append(t);
-      b.append(t);
-      c.append(t);
-  }
-  display();
-  b = c;
-  display();
-  b = a + c;
-  display();
   cout << a.find(String("1993")) << endl;
   cout << b.find(String("HYOUKA")) << endl;
   cout << c.find(String("RIKKA")) << endl;
   cout << a.substr(0, 3) << endl;
-  cout << b.substr(3, 8) << endl;
-  cout << c.substr(6, 1) << endl;
+  cout << c.substr(3, 8) << endl;
+  cout << b.substr(6, 1) << endl;
   cout << (a > b) << (a >= b) << (a < b) << (a <= b) << (a == b) << endl;
   cout << a.compare(b) << b.compare(a) << endl;
   cout << (a > c) << (a >= c) << (a < c) << (a <= c) << (a == c) << endl;
