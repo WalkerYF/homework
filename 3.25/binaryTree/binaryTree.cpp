@@ -60,7 +60,7 @@ void BinaryTree::BuildTree(const int* arr,int len, node* &root)
 					if (p->left == nullptr){
 						node * pLeft = new node(arr[i]);
 						p->left = pLeft;
-						break;					
+						break;
 					}
 					else {// p->left != left
 						p = p->left;
@@ -82,7 +82,7 @@ void BinaryTree::BuildTree(const int* arr,int len, node* &root)
 	// if (arr[1] < root->ele)
 	// 	BuildTree(arr+1, len-1, root->left);
 	// if (arr[1] > root->ele)
-	// 	BuildTree(arr+1, len-1, root->right);		
+	// 	BuildTree(arr+1, len-1, root->right);
 
 
 
@@ -128,7 +128,7 @@ void BinaryTree::clear(){
 		return ;
 	MemoryDelete(root);
 	delete root;
-	root = nullptr;	
+	root = nullptr;
 }
 
 void BinaryTree::insert(int ele)
@@ -156,7 +156,7 @@ void BinaryTree::insert(int ele)
 				if (p->left == nullptr){
 					node * pLeft = new node(ele);
 					p->left = pLeft;
-					break;					
+					break;
 				}
 				else {// p->left != left
 					p = p->left;
@@ -210,7 +210,7 @@ void BinaryTree::Delete(int ele){
 		delete temp;
 		return ;
 	}
-	
+
 	// The follows is the condition that
 	// left child exists
 	if (p->left->right == nullptr){
