@@ -40,7 +40,7 @@ public:
   }
 
   // jianfa -
-    void operator-=(int t){
+    void operator-=(double t){
   	i -= t;
   }
   Int  operator-(const Int& t){
@@ -61,7 +61,7 @@ public:
 
 
   // times
-  void operator*=(int t){
+  void operator*=(double t){
   	i *= t;
   }
   Int  operator*(const Int& t){
@@ -81,7 +81,7 @@ public:
   }
 
   // divide
-  void operator/=(int t){
+  void operator/=(double t){
   	i /= t;
   }
   Int  operator/(const Int& t){
@@ -117,9 +117,8 @@ public:
  	return *this;
   }
   //c++
-  Int & operator++(int){
-  	i++;
- 	return *this;
+  int  operator++(int){
+ 	return i++;
   }
 
   //--c
@@ -129,9 +128,8 @@ public:
 
   }
   //c--
-  Int & operator--(int){
-  	i--;
-  	return *this;
+  int  operator--(int){
+  	return i--;
   }
 
   // -

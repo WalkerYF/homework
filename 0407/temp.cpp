@@ -3,7 +3,11 @@ using namespace std;
 main(){
 	int a;
 	int b;
-	a = 1.6;
+	a = 5;
+	a *= 1.5;
+	cout << a << endl;
+	b = -1.5;
+	cout << b << endl;
 	// b = 4.7;
 	// a += 1.5;
 	// cout << b << endl;

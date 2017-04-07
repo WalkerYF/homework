@@ -25,9 +25,10 @@ void g()
   cout <<  c+1.5 << endl;
 
   cout <<  a + b + c + d << endl;
-
+// d = 101 c = 2
   d -= 1;
-  d -= 1.5;
+  d -= 1.5; //d == 98
+// d = 99 c = 2
   cout <<  c-d << endl;
   cout <<  1-c << endl;
   cout <<  c-1 << endl;
