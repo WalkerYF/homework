@@ -29,7 +29,7 @@ void g()
   d -= 1;
   d -= 1.5; //d == 98
 // d = 99 c = 2
-  cout <<  c-d << endl;
+  cout <<  c-d << endl;//--96
   cout <<  1-c << endl;
   cout <<  c-1 << endl;
   cout <<  1.5-c << endl;
@@ -37,6 +37,7 @@ void g()
 
   d *= 1;
   d *= 1.5;
+
   cout <<  c*d << endl;
   cout <<  9*c << endl;
   cout <<  c*9 << endl;
@@ -53,7 +54,7 @@ void g()
   cout <<  b%c << endl;
   cout <<  5%c << endl;
   cout <<  c%2 << endl;
-
+//c == 2
   cout <<  c++ << endl;
   cout <<  ++c << endl;
   cout <<  c-- << endl;
