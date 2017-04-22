@@ -30,6 +30,24 @@ public:
 		Point(x,y), _len(len), _wei(wei) {}
 	Rectangle(Rectangle & r):Rectangle(r.getx(), r.gety(), r._len, r._wei) {}
 
+	bool in(Point & pt){
+		if ( ( _x < pt.getx() && pt.getx() < _x + _len) 
+			&& (_y < pt.gety() && pt.gety() < _y + _wei))
+			return true;
+		return false;
+	}
+	bool on1(Point & pt){
+		if (  (_x <= pt.getx() &&  pt.getx() <= _x + _len) && 
+			(pt.gety() == _y || pt.gety() == _y + _wei))
+			return true;
+		return false;
+	}
+	bool on2(Point & pt){
+		if ( ( _y <= pt.gety() && pt.gety() <= _y + _wei) && 
+			(pt.getx() == _x || pt.getx() == _x + _len))
+			return true;
+		return false;	
+	}
 	int position(Point & pt);
 
 };
@@ -37,16 +55,13 @@ public:
 
 int Rectangle::position(Point & pt)
 {
-	if (_x < pt.getx() && pt.getx() < _x + _len 
-		&& _y < pt.gety() && pt.gety() < _y + _wei)
+	if ( in(pt))
 		return -1;
 
-	if (_x <= pt.getx() &&  pt.getx() <= _x + _len && 
-		(pt.gety() == _y || pt.gety() == _y + _wei))
+	if ( on1(pt))
 		return 0;
 
-	if (_y <= pt.gety() && pt.gety() <= _y + _wei && 
-		(pt.getx() == _x || pt.getx() == _x + _len))
+	if  ( on2(pt))
 		return 0;
 
 	return 1;

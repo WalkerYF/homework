@@ -9,23 +9,15 @@ void print(const bool & f) {
 
 int main() {
     fraction f1, f2;
+    int T = 3;
+    while (T--)
+    {
+
     std::cin >> f1 >> f2;
-    std::cout << f1 + f2 << ' ' << f1 - f2 << ' '
-              << f1 * f2 << ' ' << f1 / f2 << std::endl;
-    f1 += f2;
-    std::cout << f1 << std::endl;
-    f1 -= f2;
-    std::cout << f1 << std::endl;
-    f1 *= f2;
-    std::cout << f1 << std::endl;
-    f1 /= f2;
-    std::cout << f1 << std::endl;
-    print(f1 == f2);
-    print(f1 != f2);
     print(f1 < f2);
-    print(f1 > f2);
-    print(f1 <= f2);
-    print(f1 >= f2);
+        
+    }
+
     return 0;
 }
 

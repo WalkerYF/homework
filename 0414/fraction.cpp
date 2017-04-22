@@ -34,11 +34,12 @@ void fraction::simp()
 fraction::fraction(const int & numerator, const int & denominator):
 	_numerator(numerator), _denominator(denominator)
 {
-	// if (_denominator < 0){
-	// 	_denominator = 0 - _denominator;
-	// 	_numerator = 0 - _numerator;
-	// }
+
 	simp();
+	if (_denominator < 0){
+		_denominator = 0 - _denominator;
+		_numerator = 0 - _numerator;
+	}
 }
     // The numerator and the denominato
     // fraction(5) = 5/1 = 5 :
@@ -129,9 +130,16 @@ bool fraction::operator<(const fraction & t) const
 {
 	bool ans = (abs((long long)_numerator * t._denominator) < abs((long long)_denominator * t._numerator));
 
-	if ((_denominator < 0 && _numerator > 0 ) || (_denominator >0 && _numerator < 0)){
+	fraction a1 = fraction(this->_numerator, this->_denominator);
+	fraction a2 = fraction(t._numerator, t._denominator);
+
+	// std::cout << a1._numerator << " " << a2._numerator << std::endl;
+	if ((a1._numerator < 0 && a2._numerator > 0))
+		return 1;
+	if ( a1._numerator > 0 && a2._numerator < 0)
+		return 0;
+	if (a1._numerator < 0 && a2._numerator < 0)
 		return !ans;
-	}
 	else 
 		return ans;
 }
