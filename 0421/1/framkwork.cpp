@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-
+ 
 using namespace std;
 #include "source.h"
 const double PI=3.14;
