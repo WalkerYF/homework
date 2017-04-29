@@ -38,11 +38,11 @@ public:
 class chairman: public leader, public engineer{
 
 };
- 
-#include<iostream>
-#include<string.h>  
-#include<cstring>
-#include <fstream> 
+
+#include<iostream>   
+#include<string.h>
+#include<cstring> 
+#include <fstream>
 using namespace std;
 // #include "source.h"
 int main()
