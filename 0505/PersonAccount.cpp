@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 using std::sprintf;
 int PersonalAccount::_total_per_account = 0;
 int PersonalAccount::_acc_id_ptr = 0;

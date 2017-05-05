@@ -2,6 +2,7 @@
 #include "VIPAccount.h"
 #include <cstdlib>
 #include <cstdio>
+#include <cstring>
 using std::sprintf;
 int VIPAccount::_total_vip_account = 0;
 int VIPAccount::_acc_id_ptr = 0;
@@ -53,7 +54,7 @@ bool VIPAccount::repay(const double &num)
 // override
 std::string VIPAccount::profile() const
 {
-	char out[100];
+	char out[120];
 	sprintf(out, "ID:%d\nBALANCE:%.6lf\nVALID:Y\nTYPE:VIP\nLOAN:%.6lf,LIMIT:%.6lf\n", _id, _balance, _loan, _loan_limit);
 	return out;
 }
