@@ -20,12 +20,12 @@ int main() {
   }
   VIPAccount c0, c1, c2, c3;
   display_count();
- 
+ //
   Account *bptr = new Account();
   cout << bptr->profile() << endl;
   cout << bptr->id() << bptr->balance() << bptr->valid() << endl;
   delete bptr;
- 
+ //
   PersonalAccount *pptr = new PersonalAccount();
   cout << pptr->profile() << endl;
   for (int i = 0; i < 5; ++i) {

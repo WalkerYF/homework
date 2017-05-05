@@ -28,7 +28,7 @@ std::string PersonalAccount::profile() const
 }
 void PersonalAccount::reset()
 {
-	_balance = 0;
+	_balance = 10;
 }
 // static
 int PersonalAccount::get_total_per_account()

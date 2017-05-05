@@ -43,13 +43,15 @@ bool Account::deposit(const double &num)
 		return false;
 	else
 		_balance += num;
+	return true;
 }
 bool Account::draw(const double &num)
 {
-	if (num < 0 || (_balance < num))
+	if (num < 0 || (_balance <= num))
 		return false;
 	else
 		_balance -= num;
+	return true;
 }
 int Account::get_total_account()
 {
