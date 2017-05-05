@@ -22,7 +22,7 @@ VIPAccount::~VIPAccount()
 }
 bool VIPAccount::loan(const double &num)
 {
-	if (num < 0 || _loan_limit < (num + _loan))
+	if (num < 0 || _loan_limit <= (num + _loan))
 		return false;
 	else
 	{
