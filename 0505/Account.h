@@ -1,6 +1,8 @@
 #ifndef SSCPP2014_ACCOUNT_H
 #define SSCPP2014_ACCOUNT_H
- #include <string>
+
+#include <string>
+
  class Account {
   protected:
     int _id;
