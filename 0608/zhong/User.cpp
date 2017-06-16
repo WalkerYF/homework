@@ -29,13 +29,14 @@ void User::BuyBeautifulDress(const int & id, const int & pay, const string & nam
       dresses.push_back(wanted_dress);
       cout << this->name << " : " << "So happy to get new Dress!" << endl;
     }
-    if (wanted_dress.getName().size() == 0)
+    if (wanted_dress.getPrice() == -1)
         cout << this->name << " : " << "I'm so sorry maybe just because I love it so much." << endl;
     if (pay < wanted_dress.getPrice())
       cout << this->name << " : " <<  "OMG! Why it is so Expensive!" << endl;
 
 }
 void User::GetDressInfo(const int & id){
+    cout << this->name << " : " << "I wanna see your beautiful suits!" << endl;
     Mediator::getInstance()->DressInfoHandler(id);
 }
 pair<int, string> User::SellBeautifulDress(const int & pay, const string & dname){

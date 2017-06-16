@@ -37,7 +37,7 @@ pair<int,string> Mediator::TradeHandler(const int & to, const int & pay, const s
         pair<int, string> want_dress = (*find_user)->SellBeautifulDress(pay, dressName);
         return want_dress;
     }
-
+    return {-1, ""};
 }
 
 void Mediator::DressInfoHandler(const int & to){
