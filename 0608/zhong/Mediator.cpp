@@ -5,12 +5,10 @@ using std::list;
 
 Mediator* Mediator::Ins = nullptr;
 
-list<User*>::iterator findUser(list<User*> users, int id ){
+list<User*>::const_iterator findUser(const list<User*>& users, int id ){
     auto find_user = users.begin();
-    int flag = 0;
     for (;find_user != users.end(); find_user++){
         if ((*find_user)->getId() == id){
-            flag = 1;
             break;
         }
     }

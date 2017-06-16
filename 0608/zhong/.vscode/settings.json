@@ -5,6 +5,11 @@
         "list": "cpp",
         "ostream": "cpp",
         "vector": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "xlocnum": "cpp",
+        "istream": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "xmemory": "cpp"
     }
 }

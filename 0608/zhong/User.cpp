@@ -20,15 +20,19 @@ User::User(const string & name, const int & money, const vector<pair<string, int
 }
 
 void User::BuyBeautifulDress(const int & id, const int & pay, const string & name){
-    pair<int, string> want_pair = Mediator::getInstance()->TradeHandler(id, pay, name);
-    Dress wanted_dress(want_pair.second, want_pair.first);
-    
     if (pay > money){
         cout << this->name << " : " << "Forget to Check Wallet!" << endl;
         return ;
     }
+    pair<int, string> want_pair = Mediator::getInstance()->TradeHandler(id, pay, name);
+    Dress wanted_dress(want_pair.second, want_pair.first);
+    
     if (wanted_dress.getPrice() == -1){
         cout << this->name << " : " << "I'm so sorry maybe just because I love it so much." << endl;
+        return ;
+    }
+    if (wanted_dress.getPrice() == -2){
+        cout << this->name << " : " <<  "OMG! Why it is so Expensive!" << endl;
         return ;
     }
     if (pay >= wanted_dress.getPrice()){
@@ -36,8 +40,6 @@ void User::BuyBeautifulDress(const int & id, const int & pay, const string & nam
       this->money -= pay;
       cout << this->name << " : " << "So happy to get new Dress!" << endl;
     }
-    if (pay < wanted_dress.getPrice())
-      cout << this->name << " : " <<  "OMG! Why it is so Expensive!" << endl;
 }
 void User::GetDressInfo(const int & id){
     cout << this->name << " : " << "I wanna see your beautiful suits!" << endl;
@@ -58,7 +60,7 @@ pair<int, string> User::SellBeautifulDress(const int & pay, const string & dname
     }
     if (pay < find_dress->getPrice()){
         cout << this->name << " : " <<  "No money then no talking" << endl;
-        return {-1,""};
+        return {-2,""};
     }
     if (pay >= find_dress->getPrice()){
         cout << this->name << " : " << "What a good taste you have !" << endl;
