@@ -49,6 +49,7 @@ pair<int, string> User::SellBeautifulDress(const int & pay, const string & dname
     for (;find_dress != dresses.end(); find_dress++){
         if (find_dress->getName() == dname){
             flag = 1;
+            break;
         }
     }
     if (flag == 0){
