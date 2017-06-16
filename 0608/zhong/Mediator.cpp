@@ -4,6 +4,7 @@
 using std::list;
 
 Mediator* Mediator::Ins = nullptr;
+
 list<User*>::iterator findUser(list<User*> users, int id ){
     auto find_user = users.begin();
     int flag = 0;
@@ -20,6 +21,7 @@ list<User*>::iterator findUser(list<User*> users, int id ){
 void Mediator::RegisterHandler(User * u){
     users.push_back(u);
 }
+
 void Mediator::ChatHandler(const int & to, const string & msg){
     auto find_user = findUser(this->users, to);
     if (find_user == users.end())
@@ -42,5 +44,6 @@ pair<int,string> Mediator::TradeHandler(const int & to, const int & pay, const s
 
 void Mediator::DressInfoHandler(const int & to){
     auto find_user = findUser(this->users, to);
-    (*find_user)->ShowMyCuteDresses();
+    if (find_user != this->users.end())
+        (*find_user)->ShowMyCuteDresses();
 }
